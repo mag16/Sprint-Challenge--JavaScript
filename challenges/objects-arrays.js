@@ -15,7 +15,7 @@ const tyrannosaurus = {
   "weight": "700kg",
   "length": "12m",
   "period": "late Cretacious"
-},
+}
 
 // stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
 const stegosaurus = {
@@ -23,7 +23,7 @@ const stegosaurus = {
     "weight": "2000kg",
     "length": "9m",
     "period": "late Jurassic"
-  },
+  }
 // velociraptor, carnivorous, 15kg, 1.8m, Late Cretaceious
 const velociraptor = {
     "diet": "carnivorous",
@@ -55,6 +55,8 @@ console.log(tyrannosaurus.roar());
 
 // Given an array of college graduates.  Complete the following requests without using any array methods like .forEach(), .map(), .reduce(), .filter()
 
+//used Repl.it to fix this page
+
 const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern State College","email":"ctorry0@macromedia.com"},
 {"id":2,"first_name":"Saundra","university":"The School of the Art Institute of Chicago","email":"swhal1@state.gov"},
 {"id":3,"first_name":"Lambert","university":"Marian College","email":"lparham2@techcrunch.com"},
@@ -69,9 +71,10 @@ const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern 
 /* Request 1: Create a new array called universities that contains all the univeristies in the graduates array.  
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
+//my fix came in changing inside my push method from universities[i] to graduates[i] to make loop work
 const universities = [];
 for (i = 0; i < graduates.length; i++){
-  universities.push(universities[i].university);
+  universities.push(graduates[i].university);
 }
 //added sort method
 console.log(universities.sort());
@@ -82,14 +85,12 @@ The resulting contact information should have a space between the first name and
 Name email@example.com
 
 Log the result of your new array. */
+
+//fixed my for loops.  forgot to add "i < graduates.length"
+// .push method used to concatenate first_name and emails for graduates array
 const contactInfo = [];
-for (i = 0; graduates.length; i++){
-  if (graduates[i] === "first_name") {
-    contactInfo.push(graduates[i]);
-  } else if (graduates[i] === "email") {
-    contactInfo.push(contactInfo[i]);
-  }
-  break;
+for(i = 0; i < graduates.length; i++) {
+  contactInfo.push(graduates[i].first_name + " " + graduates[i].email);
 }
 
 console.log(contactInfo);
@@ -98,15 +99,14 @@ console.log(contactInfo);
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 
 // looks like I ran out of time here so completed loop
+//fixed line 105 (includes("Uni")) as  includes ==="Uni" incorrect syntax
+// removed else statement
+
 const uni = [];
-for (i = 0; graduates.length; i++){
-  if (graduates[i].university.includes === "uni") {
+for (i = 0; i < graduates.length; i++) {
+  if (graduates[i].university.includes("Uni")) {
     uni.push(graduates[i].university);
   }
-  else {
-    //created array above with string "Uni" or else nothing happens
-   }
-
 }
 console.log(uni);
 
