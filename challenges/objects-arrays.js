@@ -7,36 +7,33 @@
 */
 
 // tyrannosaurus, carnivorous, 7000kg, 12m, Late Cretaceious
-let tyrannosaurus = {
-  "id": 0,
+// just changed from let to const.  did forget to declare the next two so added const to those two.
+// i deleted roar method called here as well as IDs.
+
+const tyrannosaurus = {
   "diet": "carnivorous",
   "weight": "700kg",
   "length": "12m",
-  "period": "late Cretacious",
-  roar() {
-    return "RAWERSRARARWERSARARARRRR!";
-  }
+  "period": "late Cretacious"
 },
 
 // stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
-  stegosaurus = {
-    "id": 1,
+const stegosaurus = {
     "diet": "herbivorous",
     "weight": "2000kg",
     "length": "9m",
     "period": "late Jurassic"
   },
 // velociraptor, carnivorous, 15kg, 1.8m, Late Cretaceious
-  velociraptor = {
-    "id": 2,
+const velociraptor = {
     "diet": "carnivorous",
     "weight": "15kg",
     "length": "1.8m",
     "period": "late Cretacious"
-  },  
+  }
 // Using your dinosaur objects, log answers to these questions:
   
-
+//these were correct
 // How much did tyrannosaurus weigh?
 console.log(tyrannosaurus.weight); //?
 // What was the diet of a velociraptor?
@@ -47,6 +44,10 @@ console.log(stegosaurus.length);
 console.log(tyrannosaurus.period);
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
+//fixed this one as well for sprint review 
+tyrannosaurus.roar = () => { 
+  return "RAWERSRARARWERSARARARRRR!";
+}
 console.log(tyrannosaurus.roar());
 
 
@@ -72,7 +73,8 @@ const universities = [];
 for (i = 0; i < graduates.length; i++){
   universities.push(universities[i].university);
 }
-console.log(universities);
+//added sort method
+console.log(universities.sort());
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. 
 
@@ -94,9 +96,17 @@ console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
+
+// looks like I ran out of time here so completed loop
 const uni = [];
 for (i = 0; graduates.length; i++){
-  if(graduates[i].university.includes === "uni")
+  if (graduates[i].university.includes === "uni") {
+    uni.push(graduates[i].university);
+  }
+  else {
+    //created array above with string "Uni" or else nothing happens
+   }
+
 }
 console.log(uni);
 
@@ -117,15 +127,17 @@ zooAnimals = [{"animal_name":"Jackal, asiatic","population":5,"scientific_name":
 {"animal_name":"Australian pelican","population":5,"scientific_name":"Pelecanus conspicillatus","state":"West Virginia"}];
 
 // The zoos need a list of all their animal's names converted to lower case.  Create a new array named lowerCase and map over each name to convert them all to lower case.  Log the resut.
+// missed a parenthesis bracket on my fat arrow here.  added and corrected.
 let lowerCase = [];
-const list = zooAnimals.map(item) => {
+let list = zooAnimals.map((item) => {
   lowerCase.push(item.animal_name.toLowerCase());
-}
+});
 console.log(lowerCase); 
 
 // The zoos need to know their total animal population across the United States.  Add up all the population numbers from all the zoos using the .reduce() method.
-let populationTotal = [];
-zooAnimals.reduce((myReducer, item, index, array) =>{
-  return myReducer += item.population;
+//let populationTotal = [];
+// I removed my start point as an empty array and used reduce at starting point 0.
+let populationTotal = zooAnimals.reduce((myReducer, item) => {
+  return myReducer + item.population;
 }, 0);
 console.log(populationTotal);
