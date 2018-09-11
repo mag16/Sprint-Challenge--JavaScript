@@ -87,7 +87,7 @@ Name email@example.com
 Log the result of your new array. */
 
 //fixed my for loops.  forgot to add "i < graduates.length"
-// .push method used to concatenate first_name and emails for graduates array
+// .push method used to concatenate first_name and emails for contact info array
 const contactInfo = [];
 for(i = 0; i < graduates.length; i++) {
   contactInfo.push(graduates[i].first_name + " " + graduates[i].email);
