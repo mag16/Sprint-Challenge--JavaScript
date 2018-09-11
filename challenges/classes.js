@@ -1,5 +1,6 @@
 // Copy and paste your prototype in here and refactor into class syntax.
-// changed object literals to print out properly.
+// changed object literals removed ID as not needed.
+//changed string template sintax to print out properly in one line.
 class CuboidMaker {
   constructor(attributes) {
     this.length = attributes.length;
